@@ -1,0 +1,17 @@
+services:
+  srv_notification:
+    build:
+      context: .
+    image: srv_notification:latest
+    container_name: srv_notification
+    ports:
+      - "8085:8085"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    networks:
+      - my-proxy-net
+
+networks:
+  my-proxy-net:
+    name: aguas_network
+    external: true
